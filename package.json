@@ -1,0 +1,16 @@
+{
+  "name": "kircsicoin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "crypto-js": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node main"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
