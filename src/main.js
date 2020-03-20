@@ -7,12 +7,24 @@ const myKey = ec.keyFromPrivate(
 );
 const myWallettAddress = myKey.getPublic('hex');
 
+// Create the blockchain
+//  initialize chain
+//  add genesis block
+//  create an empty transaction array
 let samplecoin = new Blockchain();
 
+// Create a new transaction
 const tx1 = new Transaction(myWallettAddress, 'public key goes here', 10);
+//  sign the transaction SHA256 hash with myKey
+//  set the 'signature' property to the signed hash
 tx1.signTransaction(myKey);
+
+// Push the transaction into blockchain transactions
 samplecoin.addTransaction(tx1);
 
+// push reward Tx into blockchain's pending transactions
+// create a new block and mine a new hash
+// add the new block to the chain
 console.log('\nStarting the miner....');
 samplecoin.minePendingTransactions(myWallettAddress);
 
@@ -22,10 +34,3 @@ console.log(
 );
 
 console.log('Is chain valid? ', samplecoin.isChainValid());
-
-// console.log(JSON.stringify(samplecoin.chain, null, 4));
-// console.log('Mining block 1....');
-// samplecoin.addBlock(new Block(1, '02/02/2020', { amount: 10 }));
-
-// console.log('Mining block 2....');
-// samplecoin.addBlock(new Block(2, '05/02/2020', { amount: 25 }));
